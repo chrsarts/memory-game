@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 header {
@@ -50,4 +51,38 @@ header {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   width: 735px;
+}
+
+.how-to-play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+}
+
+.how-to-play button {
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  background-color: transparent;
+}
+
+.instructions {
+  text-align: center;
+  color: rgb(47, 166, 47);
+  line-height: 1.6;
+  margin: 10px;
+}
+.win-screen {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgb(47, 166, 47);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
 }

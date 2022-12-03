@@ -16,6 +16,8 @@ function App() {
   ]);
   const [bestScore, setBestScore] = useState(0);
   const [score, setScore] = useState(0);
+  const [howTo, setHowTo] = useState(false);
+  const [didWin, setDidWin] = useState(false);
 
   const handleAdd = () => {
     setScore((prevScore) => prevScore + 1);
@@ -23,6 +25,10 @@ function App() {
 
   useEffect(() => {
     if (score > bestScore) setBestScore(score);
+
+    if (score === 9) {
+      setDidWin(true);
+    }
   }, [score]);
 
   return (
@@ -34,6 +40,30 @@ function App() {
           <h3>Best Score: {bestScore}</h3>
         </div>
       </header>
+      <div className="how-to-play">
+        <button onClick={() => setHowTo((howTo) => !howTo)}>how to play</button>
+        {howTo ? (
+          <div className="instructions">
+            click each animal once to get the max score of 9, clicking the same
+            animal twice will reset the game!
+          </div>
+        ) : null}
+      </div>
+      {didWin ? (
+        <div className="win-screen">
+          <h1>WINNER WINNER CHICKEN DINNER 👏👏 </h1>
+          {}
+          <button
+            onClick={() => {
+              setDidWin(false);
+              setScore(0);
+              setBestScore(0);
+            }}
+          >
+            play again
+          </button>
+        </div>
+      ) : null}
       <div className="characters">
         <Characters
           characters={characters}
